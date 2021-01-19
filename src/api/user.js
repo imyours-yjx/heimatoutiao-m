@@ -22,11 +22,11 @@ export const userInfo = () => {
   });
 };
 
-// 获取频道列表数据
+// 获取用户频道列表数据
 export const getChannel = () => {
   return request({
     methods: 'GET',
-    url: '/v1_0/channels',
+    url: '/v1_0/user/channels',
   });
 };
 // 获取文章列表
@@ -35,5 +35,12 @@ export const getArticle = (params) => {
     methods: 'GET',
     url: '/v1_1/articles',
     params,
+  });
+};
+// 获取所有频道列表数据
+export const getAllChannels = () => {
+  return request({
+    methods: 'GET',
+    url: '/v1_0/channels',
   });
 };

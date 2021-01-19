@@ -109,7 +109,7 @@ export default {
         console.log(res);
         this.userInformation = res.data;
       } catch (err) {
-        this.$toast('又他妈失败了');
+        this.$toast('请重新登录！');
       }
     },
   },

@@ -8,6 +8,7 @@ import Vant from 'vant';
 // 加载Vant全局样式
 import 'vant/lib/index.css';
 import 'amfe-flexible';
+import './utils/dayjs.js';
 Vue.use(Vant);
 Vue.config.productionTip = false;
 

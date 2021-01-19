@@ -47,7 +47,7 @@ export default {
           timestamp: this.timestamp || Date.now(), // 时间戳
           with_top: 1, // 是否包含置顶项
         });
-        console.log(data);
+        // console.log(data);
         // 把数据放入list
         const { results } = data.data;
         this.list.push(...results);
@@ -65,7 +65,7 @@ export default {
         }
       } catch (err) {
         // this.$toast('获取列表数据失败！');
-        console.log(err);
+        // console.log(err);
         // this.error = true;
         if (this.data) {
           this.error = true;

@@ -22,10 +22,19 @@
       </van-tab>
 
       <div slot="nav-right" class="placeholder"></div>
-      <div slot="nav-right" class="hamburger-btn">
+      <div slot="nav-right" class="hamburger-btn" @click="itshow = true">
         <i class="toutiao toutiao-gengduo"></i>
       </div>
     </van-tabs>
+    <van-popup
+      v-model="itshow"
+      closeable
+      close-icon-position="top-left"
+      position="bottom"
+      :style="{ height: '100%' }"
+    >
+      <user-nav :myChannelsData="channelsData" :active="active"></user-nav>
+    </van-popup>
   </div>
 </template>
 
@@ -33,18 +42,20 @@
 import { getChannel } from '@/api/user';
 
 import articleList from './comments/article-list.vue';
+import UserNav from './comments/user-nav.vue';
 export default {
-  components: { articleList },
+  components: { articleList, UserNav },
   name: 'home',
   comments: { articleList },
   data() {
     return {
       active: 0,
+      itshow: false,
       channelsData: [
-        {
-          id: '',
-          name: '',
-        },
+        // {
+        //   id: '',
+        //   name: '',
+        // },
       ],
     };
   },
@@ -52,7 +63,7 @@ export default {
     async getChannelss() {
       try {
         const { data } = await getChannel();
-        // console.log(data);
+        console.log(data);
         this.channelsData = data.data.channels;
       } catch (err) {
         this.$toast('获取数据失败咯');
